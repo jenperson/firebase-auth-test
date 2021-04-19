@@ -4,7 +4,7 @@
   Create a user with given email and password
   Use to test if an existing Google account
   can still create an email/password user
-*/
+https://firebase.google.com/docs/auth/web/password-auth#create_a_password-based_account*/
 function createUser(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
@@ -21,6 +21,7 @@ function createUser(email, password) {
   Use to test if an existing email/password account
   can still log in after attempting to log in
   with Google
+  https://firebase.google.com/docs/auth/web/password-auth#sign_in_a_user_with_an_email_address_and_password
 */
 function signInUserWithEmail(email, password) {
   firebase.auth().signInWithEmailAndPassword(email, password)
@@ -39,6 +40,7 @@ function signInUserWithEmail(email, password) {
   attempt to create an email/password account
   Use to test if a Google account can be made when
   an email/password account exists
+  https://firebase.google.com/docs/auth/web/google-signin#handle_the_sign-in_flow_with_the_firebase_sdk
 */
 function signInUserWithGoogle() {
   // Step 1.
@@ -79,7 +81,8 @@ function signInUserWithGoogle() {
 }
 
 /*
-
+  Get result of Google sign in  
+  https://firebase.google.com/docs/auth/web/google-signin#redirect-mode
 */
 function getRedirectResult() {
   firebase.auth()
@@ -101,6 +104,10 @@ function getRedirectResult() {
   });
 }
 
+/*
+  Sign out of Firebase as needed
+  https://firebase.google.com/docs/auth/web/password-auth#next_steps
+*/
 function signOut() {
   firebase.auth().signOut().then(() => {
     console.log('sign out successful');
